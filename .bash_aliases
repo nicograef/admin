@@ -1,0 +1,5 @@
+alias sss='eval `ssh-agent` && ssh-add'
+alias gfp='git fetch --prune && git pull'
+alias gct='git checkout test'
+alias gbv='git branch -vv'
+alias glo='git log --oneline'
