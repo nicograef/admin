@@ -3,3 +3,6 @@ grep -rnwl 'StructuralFormat' . --include=\*.ts --exclude=\*.{d,test}.ts --exclu
 
 # show all open ports
 netstat -tulpn | grep LISTEN
+
+# list successful ssh logins
+journalctl -u ssh | grep "session opened" -B 1
