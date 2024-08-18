@@ -59,3 +59,21 @@ sudo ufw enable  # Enable the UFW service
 sudo systemctl enable ufw
 sudo ufw status  # Check ufw settings afterwards
 ```
+
+## use fail2ban
+
+- Github Repo [fail2ban/fail2ban](https://github.com/fail2ban/fail2ban)
+- Debian Issue [fail2ban#3292](https://github.com/fail2ban/fail2ban/issues/3292)
+
+```bash
+sudo apt install fail2ban
+sudo systemctl status fail2ban
+```
+
+if fail2ban errors, add `backend = systemd` to `/etc/fail2ban/jail.d/defaults-debian.conf` or create a new file `/etc/fail2ban/jail.local` with contents:
+
+```config
+[sshd]
+backend=systemd
+enabled = true
+```
