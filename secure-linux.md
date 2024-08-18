@@ -22,6 +22,11 @@ sudo ls -la /root # check if user has sudo priviledges
 
 ## Switch from Password to Public Key Authentication and disallow root login
 
+Before switching:
+1. generate new ssh keys via `ssh-keygen`
+2. copy public key to `nico@remote:~/.ssh/authorized_keys`
+3. make sure this works (might need changes via `chmod` or `chown`)
+
 ```bash
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 sudo vim /etc/ssh/sshd_config
