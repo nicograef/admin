@@ -1,5 +1,7 @@
 alias sss='eval `ssh-agent` && ssh-add'
 alias gfp='git fetch --prune && git pull'
 alias gct='git checkout test'
+alias gcm='git checkout main || git checkout master'
 alias gbv='git branch -vv'
 alias glo='git log --oneline'
+alias glg='git log --graph --pretty=oneline --abbrev-commit --branches'
