@@ -3,7 +3,7 @@
 What accumulates where, which classes `prune-state.sh` may delete, and what it
 must never touch.
 
-- **Verified against Claude Code CLI 2.1.258 (dev machine).**
+- **Verified against Claude Code CLI 2.1.259 (dev machine).**
 - **Internal layout** — it drifts between CLI versions.
 - **Drift rule** — a machine on another CLI version re-verifies by listing the directories.
 - **Drift signs** — locations missing, renamed, or differently keyed.
@@ -28,7 +28,7 @@ use them.
 | `scratchpads` | `/tmp/claude-<uid>/<slug>/<session-id>/` | project + session | project scope (own slug) and `all` |
 | `file-history` | `~/.claude/file-history/<session-id>/` | session | `all` only |
 | `session-env` | `~/.claude/session-env/<session-id>/` | session | `all` only |
-| `tasks` | `~/.claude/tasks/<session-id>/` | session | `all` only |
+| `tasks` | `~/.claude/tasks/<session-id>/`; on 2.1.259 task output lives under the scratchpad session directory instead, covered by `scratchpads` | session | `all` only |
 | `shell-snapshots` | `~/.claude/shell-snapshots/snapshot-*.sh` | age only | `all` only |
 | `paste-cache` | `~/.claude/paste-cache/*.txt` | age only | `all` only |
 | `debug-logs` | `~/.claude/debug/*.txt` | session (`<session-id>.txt`) | `all` only |
