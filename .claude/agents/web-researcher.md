@@ -1,6 +1,7 @@
 ---
 name: web-researcher
 description: Use for any task requiring external facts about companies, tools, markets, people, or job openings. Gathers and cross-checks information from live web sources under strict verification rules. Returns structured findings with per-claim sources and an as-of date. Does NOT take outbound actions (no applying, submitting, or messaging).
+model: opus
 tools: WebSearch, WebFetch, Read, Write, Bash, mcp__playwright, mcp__plugin_playwright_playwright, mcp__plugin_context7_context7__query-docs, mcp__plugin_context7_context7__resolve-library-id
 ---
 
