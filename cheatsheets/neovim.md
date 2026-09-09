@@ -44,6 +44,21 @@ Relative line numbers show the count: `7j` jumps to the line labelled 7.
 | `[<Space>` / `]<Space>`   | Blank line above / below                                      |
 | `v` / `V`                 | Character / line selection, then any operator                 |
 
+## Files and project
+
+`nvim .` opens the project tree (netrw, built in); a file opens beside it.
+
+| Key                   | Action                                                    |
+| --------------------- | --------------------------------------------------------- |
+| `Space` `e`           | Toggle the tree as a left sidebar                         |
+| `Enter` / `-`         | Open the file or directory / go up one directory          |
+| `%` / `d`             | New file / new directory                                  |
+| `R` / `D`             | Rename / delete                                           |
+| `gh`                  | Show or hide dot-files                                    |
+| `:find name<Tab>`     | Open a file anywhere in the project by name               |
+| `:e path<Tab>`        | Open by path, with completion                             |
+| `Ctrl-w` `w`          | Jump between windows                                      |
+
 ## German keyboard (xkb `de`)
 
 `[ ] { } /` sit behind AltGr or Shift. The config moves them to the umlaut keys in Normal,

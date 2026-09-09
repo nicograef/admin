@@ -50,6 +50,17 @@ for lhs, rhs in pairs(de) do
 end
 vim.o.langmap = from .. ';' .. to
 
+-- ── Files ────────────────────────────────────────────────────────────────────
+-- netrw, the built-in browser: `nvim .` opens the tree, Space-e toggles it as a
+-- left sidebar, and files open beside it. `:find <name><Tab>` searches the project.
+vim.g.mapleader = ' '
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3        -- tree
+vim.g.netrw_browse_split = 4     -- open in the previous window; the tree stays
+vim.g.netrw_winsize = 25
+vim.keymap.set('n', '<leader>e', '<cmd>Lexplore<CR>', { desc = 'Toggle the file tree' })
+vim.opt.path:append('**')
+
 -- ── Plugins ──────────────────────────────────────────────────────────────────
 -- Loaded when cloned into ~/.local/share/nvim/site/pack/plugins/start/
 -- (guides/neovim.md → Plugins); absent plugins are skipped.
