@@ -75,16 +75,12 @@ fi
 
 ensure_cmd node "Install Node (see .devcontainer/devcontainer.json features)."
 
+# npm, not Corepack: Node 25+ no longer ships Corepack.
 info "Ensuring pnpm..."
 if command -v pnpm >/dev/null 2>&1; then
   info "pnpm already installed: $(pnpm --version)"
 else
-  if command -v corepack >/dev/null 2>&1; then
-    corepack enable
-    corepack prepare pnpm@10 --activate
-  else
-    fatal "pnpm not found and corepack unavailable. Install pnpm manually."
-  fi
+  npm install -g pnpm@12
 fi
 
 # ── Frontend dependencies ───────────────────────────────────────────────────

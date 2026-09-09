@@ -30,8 +30,7 @@ FROM node:24-alpine AS build
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
-RUN corepack enable \
-  && corepack prepare pnpm@10 --activate \
+RUN npm install -g pnpm@12 \
   && pnpm install --frozen-lockfile
 
 COPY . .
@@ -43,6 +42,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
+
+- `npm install -g pnpm`, not Corepack: Node 25+ images no longer ship Corepack.
 
 - Use a `.dockerignore` to exclude `node_modules/`, `.git/`, etc.
 
