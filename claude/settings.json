@@ -1,7 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "cleanupPeriodDays": 90,
-  "attribution": { "commit": "", "pr": "", "sessionUrl": false },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "permissions": {
     "allow": [
       "Bash(ls:*)",
@@ -150,7 +154,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-opus-5[1m]",
+  "model": "claude-fable-5-1[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -226,6 +230,11 @@
   },
   "outputStyle": "Proactive",
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
+  },
   "promptSuggestionEnabled": false,
   "awaySummaryEnabled": false,
   "autoUpdatesChannel": "latest",
@@ -251,6 +260,5 @@
       "Protected IaC scopes: not yet provided. An agent session never runs an infrastructure deploy or destroy command.",
       "Additional context: single-user company laptop, no CI secrets held locally. Agent sessions work in git worktrees under .worktrees/ and land on feature branches; they never deploy and never push to main."
     ]
-  },
-  "modelSettings": { "claude-fable-5-1": { "effortLevel": "high" } }
+  }
 }
