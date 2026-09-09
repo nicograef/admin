@@ -21,6 +21,14 @@ vim.o.softtabstop = 2
 vim.o.tabstop = 2
 vim.g.markdown_recommended_style = 0   -- the Markdown ftplugin would force 4 spaces
 
+-- ── Providers ────────────────────────────────────────────────────────────────
+-- Remote-plugin hosts for Node, Perl, Python and Ruby; unused here, and each one
+-- would otherwise raise a :checkhealth warning.
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 -- ── Clipboard ────────────────────────────────────────────────────────────────
 -- y and p use the system clipboard where a tool exists (wl-clipboard on Wayland,
 -- xclip on X11). Over SSH, Neovim picks OSC 52 by itself when the terminal supports
