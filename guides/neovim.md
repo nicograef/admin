@@ -25,6 +25,13 @@ Keys and learning path: [cheatsheets/neovim.md](../cheatsheets/neovim.md).
    sudo apt install neovim                # server: no tool, OSC 52 over SSH
    ```
 
+   Latest release instead of the distro version (Ubuntu): the classic snap refreshes itself.
+   Never both — `/usr/bin` precedes `/snap/bin` on `PATH`, so apt would shadow the snap.
+
+   ```bash
+   sudo snap install nvim --classic && sudo apt install wl-clipboard
+   ```
+
 2. **Link the config.** `install.sh` is idempotent; re-run it when the clone predates the link.
 
    ```bash
