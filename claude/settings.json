@@ -251,5 +251,6 @@
       "Protected IaC scopes: not yet provided. An agent session never runs an infrastructure deploy or destroy command.",
       "Additional context: single-user company laptop, no CI secrets held locally. Agent sessions work in git worktrees under .worktrees/ and land on feature branches; they never deploy and never push to main."
     ]
-  }
+  },
+  "modelSettings": { "claude-fable-5-1": { "effortLevel": "high" } }
 }
