@@ -17,20 +17,18 @@ Keys and learning path: [cheatsheets/neovim.md](../cheatsheets/neovim.md).
 
 ## Steps
 
-1. **Install.** Name the clipboard tool in the same command; alone, apt satisfies the
+1. **Install.** Desktop on Ubuntu: the classic snap ships the latest release and refreshes
+   itself. Debian and servers: apt. Never both — `/usr/bin` precedes `/snap/bin` on `PATH`,
+   so apt would shadow the snap.
+
+   ```bash
+   sudo snap install nvim --classic && sudo apt install wl-clipboard   # Ubuntu desktop
+   sudo apt install neovim wl-clipboard                                 # Debian desktop
+   sudo apt install neovim                                              # server: OSC 52 over SSH
+   ```
+
+   Name the clipboard tool in the apt command; alone, apt satisfies the
    `xclip | xsel | wl-clipboard` recommendation with X11 `xclip`.
-
-   ```bash
-   sudo apt install neovim wl-clipboard   # desktop
-   sudo apt install neovim                # server: no tool, OSC 52 over SSH
-   ```
-
-   Latest release instead of the distro version (Ubuntu): the classic snap refreshes itself.
-   Never both — `/usr/bin` precedes `/snap/bin` on `PATH`, so apt would shadow the snap.
-
-   ```bash
-   sudo snap install nvim --classic && sudo apt install wl-clipboard
-   ```
 
 2. **Link the config.** `install.sh` is idempotent; re-run it when the clone predates the link.
 
