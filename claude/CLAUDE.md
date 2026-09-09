@@ -10,7 +10,7 @@
 
 ## Company context
 
-- Company, team, product, repositories, tech stack, and infrastructure: not yet provided by Nico.
+- Stacks: Node/TypeScript and Python. Team, product, repositories, and infrastructure: not yet provided by Nico.
 - Until provided, treat every company repo as private and every remote target as sensitive.
 - Ask before assuming anything about the company's stack or conventions.
 
