@@ -12,8 +12,9 @@ Keys and learning path: [cheatsheets/neovim.md](../cheatsheets/neovim.md).
 
 - Ubuntu 24.04+ or Debian 13+: apt ships Neovim 0.10 or newer. Debian 12 ships 0.7 — too old.
 - The handbook cloned and [`install.sh`](../install.sh) run — [bootstrap.md](bootstrap.md#new-dev-machine).
-- A desktop clipboard needs `wl-clipboard` (Wayland) or `xclip` (X11).
-  Over SSH, Neovim uses OSC 52 by itself when the terminal supports it.
+- A desktop clipboard needs `xclip` — also on Wayland, through XWayland. `wl-clipboard` opens a
+  hidden window per copy on GNOME, which steals focus and raises a notification each time.
+- Over SSH, Neovim uses OSC 52 by itself when the terminal supports it.
 
 ## Steps
 
@@ -22,13 +23,10 @@ Keys and learning path: [cheatsheets/neovim.md](../cheatsheets/neovim.md).
    so apt would shadow the snap.
 
    ```bash
-   sudo snap install nvim --classic && sudo apt install wl-clipboard   # Ubuntu desktop
-   sudo apt install neovim wl-clipboard                                 # Debian desktop
-   sudo apt install neovim                                              # server: OSC 52 over SSH
+   sudo snap install nvim --classic && sudo apt install xclip   # Ubuntu desktop
+   sudo apt install neovim xclip                                # Debian desktop
+   sudo apt install neovim                                      # server: OSC 52 over SSH
    ```
-
-   Name the clipboard tool in the apt command; alone, apt satisfies the
-   `xclip | xsel | wl-clipboard` recommendation with X11 `xclip`.
 
 2. **Link the config.** `install.sh` is idempotent; re-run it when the clone predates the link.
 
@@ -36,7 +34,7 @@ Keys and learning path: [cheatsheets/neovim.md](../cheatsheets/neovim.md).
    ./install.sh                           # from the handbook clone
    ```
 
-3. **Check the providers.** A desktop lists `wl-copy`; a server reports no tool, which is expected.
+3. **Check the providers.** A desktop lists `xclip`; a server reports no tool, which is expected.
 
    ```bash
    nvim +'checkhealth vim.provider'
@@ -98,5 +96,5 @@ git -C "$P/precognition.nvim" pull                                              
 ```bash
 readlink -f ~/.config/nvim/init.lua                                  # → <clone>/templates/init.lua
 nvim --headless -c 'lua print(vim.o.shiftwidth, vim.o.clipboard)' -c q   # → 2 unnamedplus (desktop) / 2 (server)
-nvim +'checkhealth vim.provider'                                     # Clipboard: wl-copy (desktop)
+nvim +'checkhealth vim.provider'                                     # Clipboard: xclip (desktop)
 ```

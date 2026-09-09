@@ -30,10 +30,12 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
 -- ── Clipboard ────────────────────────────────────────────────────────────────
--- y and p use the system clipboard where a tool exists (wl-clipboard on Wayland,
--- xclip on X11). Over SSH, Neovim picks OSC 52 by itself when the terminal supports
--- it, but only while 'clipboard' stays unset.
-if vim.fn.executable('wl-copy') == 1 or vim.fn.executable('xclip') == 1 then
+-- y and p use the system clipboard. On GNOME Wayland the tool is xclip through
+-- XWayland: wl-copy must open a hidden window there, which steals focus and raises
+-- a "wl-clipboard is ready" notification on every yank. Over SSH, Neovim picks
+-- OSC 52 by itself, but only while 'clipboard' stays unset.
+if vim.env.DISPLAY and vim.fn.executable('xclip') == 1 then
+  vim.g.clipboard = 'xclip'
   vim.o.clipboard = 'unnamedplus'
 end
 
