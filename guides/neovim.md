@@ -71,6 +71,13 @@ Sources: [`:help 'langmap'`](https://neovim.io/doc/user/options.html#'langmap'),
 [`:help CTRL-^`](https://neovim.io/doc/user/editing.html#CTRL-%5E),
 [Vim Tips Wiki: map extra keys on non-US keyboards](https://web.archive.org/web/2023/https://vim.fandom.com/wiki/Map_extra_keys_on_non_US_keyboards).
 
+## Optional
+
+| Change                     | Command                                                                              | Trade-off                                          |
+| -------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| Caps Lock as Esc           | `gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"`        | System-wide                                        |
+| Commit messages in Neovim  | `git config --global core.editor nvim`                                               | Daily practice; `install.sh` resets it to `nano`   |
+
 ## Plugins
 
 Later, one `git clone` each into Neovim's package path — no plugin manager

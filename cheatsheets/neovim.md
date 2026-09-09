@@ -62,6 +62,18 @@ Visual and Operator-pending mode. Insert mode and `f`, `t`, `r` still get the um
 Alternative: the US layout with umlauts on AltGr —
 [guides/neovim.md](../guides/neovim.md#german-keyboard).
 
+## First session
+
+Open this file: `nvim ~/r/handbook/cheatsheets/neovim.md`. `Esc` is always the way back.
+
+| Do                      | Keys                                                   |
+| ----------------------- | ------------------------------------------------------ |
+| Move around             | `j` `k` `h` `l`; `7j` goes to the line labelled 7      |
+| Type something          | `i`, type, `Esc`                                       |
+| Undo it                 | `u`                                                    |
+| Get out, no matter what | `Esc` `:q!` `Enter`                                    |
+| Save and quit           | `:wq` `Enter`                                          |
+
 ## Learning path
 
 | Week | Do                                                                                   |
@@ -70,6 +82,8 @@ Alternative: the US layout with umlauts on AltGr —
 | 2    | One chapter of `:help user-manual` per day: `usr_02` to `usr_12`                     |
 | 3    | precognition.nvim — hints where `w`, `b`, `e`, `f` land ([install](../guides/neovim.md#plugins)) |
 | 4+   | hardtime.nvim — blocks key repeats and names the faster motion                       |
+
+Done when `:Tutor` chapter 1 passes without the cheatsheet, and a week of real edits needed no VS Code.
 
 ## Resources
 
