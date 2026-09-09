@@ -62,6 +62,7 @@ git -C ~/handbook pull
 # the dotfile symlinks resolve back into the repo
 readlink -f ~/.bash_aliases
 readlink -f ~/.tmux.conf
+readlink -f ~/.config/nvim/init.lua
 
 # history tuning from .bash_aliases is active
 bash -i -c 'echo $HISTSIZE'                  # → 100000

@@ -29,6 +29,7 @@ LANG_ALLOW=(
   ".claude/skills/cleanup/readability-de.md"
   ".claude/skills/audiobook/german-narration.md"
   "claude/CLAUDE.md"
+  "cheatsheets/neovim.md"
 )
 
 # Files exempt from the paragraph cap only — the sentence cap still applies to them.

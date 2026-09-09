@@ -21,6 +21,7 @@ Setting something up? Start at [guides/bootstrap.md](guides/bootstrap.md).
 | Server maintenance & upkeep       | [guides/maintenance.md](guides/maintenance.md)                             |
 | Audiobooks for ElevenReader       | [guides/audiobook-pipeline.md](guides/audiobook-pipeline.md)               |
 | Unattended agent runs             | [guides/unattended-agents.md](guides/unattended-agents.md)                 |
+| Neovim for text editing           | [guides/neovim.md](guides/neovim.md)                                       |
 
 ### Stack conventions
 
@@ -39,6 +40,7 @@ Heading-grouped rules and idioms per stack — reference material, not runbooks.
 | Docker Compose        | [cheatsheets/docker-compose.md](cheatsheets/docker-compose.md) |
 | PostgreSQL            | [cheatsheets/postgresql.md](cheatsheets/postgresql.md)         |
 | Makefile              | [cheatsheets/makefile.md](cheatsheets/makefile.md)             |
+| Neovim                | [cheatsheets/neovim.md](cheatsheets/neovim.md)                 |
 
 ## Templates
 
@@ -46,6 +48,7 @@ Heading-grouped rules and idioms per stack — reference material, not runbooks.
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | [templates/.bash_aliases](templates/.bash_aliases)                     | Shell aliases (git, make, pnpm), history tuning, git prompt       |
 | [templates/.tmux.conf](templates/.tmux.conf)                           | tmux defaults for remote work (mouse, scrollback, escape-time)    |
+| [templates/init.lua](templates/init.lua)                               | Neovim config: prose defaults, 2-space indent, German keyboard remaps |
 | [templates/.editorconfig](templates/.editorconfig)                     | EditorConfig for consistent formatting (Go tabs, JS/TS 2-space)   |
 | [templates/.gitignore](templates/.gitignore)                           | Universal .gitignore (OS, IDE, env, build artifacts, logs, Claude local settings) |
 | [templates/devcontainer.json](templates/devcontainer.json)             | Dev Container config with commented feature blocks per stack      |

@@ -88,6 +88,8 @@ Two tiers — pick by what the machine is for. A machine can carry both.
    [dev-machine opt-out](claude-plugin.md#dev-machine-opt-out) in each adopted
    repo so the skills don't load twice.
 
+**Editor** — [neovim.md](neovim.md) installs Neovim; `install.sh` has already linked its config.
+
 **Done when** the symlink tier's [Verify block](dotfiles-codespaces.md#verify)
 passes, or (plugin tier) `claude plugin details handbook` lists the skills
 ([Verify](claude-plugin.md#verify)).

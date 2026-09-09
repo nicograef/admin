@@ -85,6 +85,8 @@ Full contract: [.claude/skills/output-style.md](.claude/skills/output-style.md).
 - Exception: the German example phrases in `.claude/skills/cleanup/readability-de.md` and
   `.claude/skills/audiobook/german-narration.md`, and the German proper noun in `claude/CLAUDE.md`
   and `claude/settings.json`.
+- Exception: the umlaut key names in `cheatsheets/neovim.md` and `templates/init.lua`
+  (German keyboard remaps).
 - Their explanatory prose stays English.
 
 ## Plan-first workflow

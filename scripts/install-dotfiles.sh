@@ -7,7 +7,7 @@
 #   git clone https://github.com/nicograef/handbook.git && cd handbook && ./install.sh
 #
 # What it does:
-#   1. Symlinks .bash_aliases and .tmux.conf into $HOME
+#   1. Symlinks .bash_aliases, .tmux.conf and the Neovim init.lua into $HOME
 #   2. Symlinks Claude Code config (global CLAUDE.md, settings, agents, skills,
 #      agent-bus.sh and plan-run-guard.sh — the global hooks in settings.json
 #      call them by those paths)
@@ -35,12 +35,14 @@ fi
 declare -A FILES=(
   ["templates/.bash_aliases"]=".bash_aliases"
   ["templates/.tmux.conf"]=".tmux.conf"
+  ["templates/init.lua"]=".config/nvim/init.lua"
 )
 
 for src in "${!FILES[@]}"; do
   dest="$HOME/${FILES[$src]}"
   origin="$DOTFILES_DIR/$src"
   if [[ -f "$origin" ]]; then
+    mkdir -p "$(dirname "$dest")"
     ln -sf "$origin" "$dest"
     log "Linked $dest → $origin"
   else
