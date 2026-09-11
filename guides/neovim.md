@@ -10,7 +10,8 @@ Keys and learning path: [cheatsheets/neovim.md](../cheatsheets/neovim.md).
 
 ## Prerequisites
 
-- Ubuntu 24.04+ or Debian 13+: apt ships Neovim 0.10 or newer. Debian 12 ships 0.7 — too old.
+- The latest Neovim release, from [github.com/neovim/neovim/releases](https://github.com/neovim/neovim/releases/latest).
+  apt lags a major version behind (Debian 13 ships 0.10) and is not used.
 - The handbook cloned and [`install.sh`](../install.sh) run — [bootstrap.md](bootstrap.md#new-dev-machine).
 - A desktop clipboard needs `xclip` — also on Wayland, through XWayland. `wl-clipboard` opens a
   hidden window per copy on GNOME, which steals focus and raises a notification each time.
@@ -18,15 +19,22 @@ Keys and learning path: [cheatsheets/neovim.md](../cheatsheets/neovim.md).
 
 ## Steps
 
-1. **Install.** Desktop on Ubuntu: the classic snap ships the latest release and refreshes
-   itself. Debian and servers: apt. Never both — `/usr/bin` precedes `/snap/bin` on `PATH`,
-   so apt would shadow the snap.
+1. **Install.** Ubuntu desktop: the classic snap ships the latest release and refreshes
+   itself. Debian and servers: the pre-built tarball from the release page, unpacked into
+   `~/.local` — no sudo, and `~/.local/bin` precedes `/usr/bin` on `PATH`. Never the apt
+   package beside the snap: `/usr/bin` precedes `/snap/bin`, so apt would shadow it.
 
    ```bash
    sudo snap install nvim --classic && sudo apt install xclip   # Ubuntu desktop
-   sudo apt install neovim xclip                                # Debian desktop
-   sudo apt install neovim                                      # server: OSC 52 over SSH
+
+   # Debian desktop (add `sudo apt install xclip`) and servers; re-run to update
+   curl -fsSLO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+   rm -rf ~/.local/nvim-linux-x86_64 && tar -C ~/.local -xzf nvim-linux-x86_64.tar.gz
+   ln -sfn ~/.local/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim && rm nvim-linux-x86_64.tar.gz
    ```
+
+   The tarball does not refresh itself; the [release page](https://github.com/neovim/neovim/releases/latest)
+   shows when a re-run is due. Source: [INSTALL.md](https://github.com/neovim/neovim/blob/master/INSTALL.md).
 
 2. **Link the config.** `install.sh` is idempotent; re-run it when the clone predates the link.
 
@@ -94,6 +102,7 @@ git -C "$P/precognition.nvim" pull                                              
 ## Verify
 
 ```bash
+nvim --version | head -1                                             # → the tag of the latest release
 readlink -f ~/.config/nvim/init.lua                                  # → <clone>/templates/init.lua
 nvim --headless -c 'lua print(vim.o.shiftwidth, vim.o.clipboard)' -c q   # → 2 unnamedplus (desktop) / 2 (server)
 nvim +'checkhealth vim.provider'                                     # Clipboard: xclip (desktop)
