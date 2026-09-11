@@ -1,5 +1,16 @@
 # PostgreSQL
 
+## Connect
+
+The host has no `psql`; PostgreSQL and its client tools live only in the `postgres`
+container. Run every query through it:
+
+```bash
+docker compose exec -T postgres sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 1;"'
+```
+
+Single quotes keep `$POSTGRES_*` for the container's shell; `-T` avoids a pseudo-TTY.
+
 ## Query & Index Management
 
 ```sql
